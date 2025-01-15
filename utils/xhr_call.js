@@ -54,4 +54,4 @@ let headers = {
 
 let data = xhrCall({ url:url, method:'POST', formData:formData, headers:headers });
 
-console.log(data);
+data;
