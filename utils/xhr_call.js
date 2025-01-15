@@ -13,7 +13,7 @@
  * @returns {Object} - The response of the request. It can be an Object or a DOM
  */
 
-function xhr_call({ url, method="GET", parse=true, formData=null, headers=null }){
+function xhrCall({ url, method="GET", parse=true, formData=null, headers=null }){
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false);
     
@@ -52,6 +52,6 @@ let headers = {
     'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0'
 }
 
-let data = xhr_call({ url:url, method:'POST', formData:formData, headers:headers });
+let data = xhrCall({ url:url, method:'POST', formData:formData, headers:headers });
 
 console.log(data);
