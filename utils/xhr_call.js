@@ -1,7 +1,7 @@
 /**
  * Autor : Fenosoa
  * Created at : 14-01-2025
- * last modified : 14-01-2024
+ * last modified : 15-01-2024
  * 
  * To get data by call API 'XMLHTTPREQUEST'
  * @param {string} url - The url to send request
