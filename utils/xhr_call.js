@@ -1,8 +1,4 @@
 /**
- * Autor : Fenosoa
- * Created at : 14-01-2025
- * last modified : 15-01-2024
- * 
  * To get data by call API 'XMLHTTPREQUEST'
  * @param {string} url - The url to send request
  * @param {string} method - The method how to send data "GET" or "POST" (default : "GET")
@@ -18,9 +14,7 @@ function xhrCall({ url, method="GET", parse=true, formData=null, headers=null })
     xhr.open(method, url, false);
     
     if(headers) {
-        for(let [key, value] of Object.entries(headers)) {
-            xhr.setRequestHeader(key, value);
-        }
+        for(let [key, value] of Object.entries(headers)) { xhr.setRequestHeader(key, value); }
     }
     
     xhr.send(formData);
@@ -54,4 +48,4 @@ let headers = {
 
 let data = xhrCall({ url:url, method:'POST', formData:formData, headers:headers });
 
-data;
+console.log(data);
