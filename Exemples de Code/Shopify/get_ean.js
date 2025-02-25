@@ -21,7 +21,7 @@
     });
 
     barcode = barcode.length ? barcode : [code[0]];
-    barcode = barcode.filter((el) => el );
+    barcode = barcode.filter((el) => el);
     if (!barcode.length) barcode = window.prodVariant.map((el) => el.barcode);
     if (prodVariantsColor.length && prodVariantsColor.length == window.productInfo?.label.length)
         barcode = window.prodVariantsColor.map((el) => el.barcode);
