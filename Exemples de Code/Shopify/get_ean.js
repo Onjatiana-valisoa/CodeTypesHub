@@ -4,9 +4,9 @@
     let { barcode: code, label: label } = window.productInfo || {};
     let currentColor = decodeURIComponent(location.hash.slice(1)).replace(`_`, ``);
 
-    let options = label.map((el) => currentColor.split(` / `).concat(el));
+    let options = label?.map((el) => currentColor.split(` / `).concat(el));
 
-    window.prodVariantsColor.forEach((variant, index) => {
+    window.prodVariantsColor?.forEach((variant, index) => {
         let array1 = variant.options;
         let array2 = options.length ? options : [[currentColor]];
 
@@ -21,6 +21,7 @@
     });
 
     barcode = barcode.length ? barcode : [code[0]];
+    barcode = barcode.filter((el) => el );
     if (!barcode.length) barcode = window.prodVariant.map((el) => el.barcode);
     if (prodVariantsColor.length && prodVariantsColor.length == window.productInfo?.label.length)
         barcode = window.prodVariantsColor.map((el) => el.barcode);
