@@ -8,13 +8,13 @@
  */
 
 (function (data_attribute_stringified) {
-    // Récupère toutes les URLs d'images visibles dans la page
+    // Récupère toutes les URLs d`images visibles dans la page
     function getAllImageUrlsFromDom() {
         const base = window.location.origin;
         const seen = new Set();
 
-        return Array.from(document.querySelectorAll('img'))
-            .map((img) => img.getAttribute('src'))
+        return Array.from(document.querySelectorAll(`img`))
+            .map((img) => img.getAttribute(`src`))
             .filter((src) => !!src)
             .map((src) => {
                 try {
@@ -26,15 +26,15 @@
             .filter((url) => url && !seen.has(url) && seen.add(url));
     }
 
-    // Vérifie qu'une image est accessible et que sa taille dépasse le seuil donné
+    // Vérifie qu`une image est accessible et que sa taille dépasse le seuil donné
     function isImageUrlValidSync(url, minSizeBytes = 10240) {
         try {
             const xhr = new XMLHttpRequest();
-            xhr.open('HEAD', url, false);
+            xhr.open(`HEAD`, url, false);
             xhr.send(null);
 
             if (xhr.status === 200) {
-                const length = parseInt(xhr.getResponseHeader('Content-Length')) || 0;
+                const length = parseInt(xhr.getResponseHeader(`Content-Length`)) || 0;
                 return length >= minSizeBytes;
             }
         } catch (err) {}
@@ -46,5 +46,5 @@
         return urls.filter((url) => isImageUrlValidSync(url, minSizeBytes));
     }
 
-    return getValidImagesFromDom().join('<!LIST!>');
-})('DATA_ATTRIBUTE_INSTANCE_LIVE_SCRAPPER_SPOT');
+    return getValidImagesFromDom().join(`<!LIST!>`);
+})(`DATA_ATTRIBUTE_INSTANCE_LIVE_SCRAPPER_SPOT`);
